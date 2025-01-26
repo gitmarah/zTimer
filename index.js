@@ -11,8 +11,11 @@ const error = document.querySelector(".error");
 let timerInterval;
 let remainingTime;
 let totalDuration;
+const now = new Date();
 
 startButton.addEventListener('click', () => {
+    popUp.style.display = "none"
+    const targetDate = new Date(targetDateInput.value);
     if(eventTitleInput.value === ""){
         document.querySelector(".error").style.display = "block";
         document.querySelector(".error").innerText = "Please enter an event title!";
@@ -20,15 +23,13 @@ startButton.addEventListener('click', () => {
     } else {
         document.querySelector(".error").style.display = "none";
     }
-    if(targetDateInput.value === ""){
+    if(targetDateInput.value === "" || now.toISOString() > targetDate.toISOString()){
         document.querySelector(".error").style.display = "block";
         document.querySelector(".error").innerText = "Invalid target date!";
         return;
     } else {
         document.querySelector(".error").style.display = "none";
     }
-    popUp.style.display = "none"
-    const targetDate = new Date(targetDateInput.value);
 
     if (isNaN(targetDate.getTime())) {
         alert('Please set a valid date and time.');
@@ -78,6 +79,6 @@ closePopUp.addEventListener('click', () => {
     progressBarClass.style.display = "none";
     timeDisplay.style.display = "none";
 });
-const today = new Date();
 
-document.getElementById("footer").innerHTML = `<p>zTimer &copy; ${today.getFullYear()}</p>`;
+
+document.getElementById("footer").innerHTML = `<p>zTimer &copy; ${now.getFullYear()}</p>`;
