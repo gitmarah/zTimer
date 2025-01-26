@@ -112,6 +112,7 @@ button:disabled {
 input{
     background-color: #f4f4f9;
     border: 1px solid #4caf50;
+    width: 100%;
     height: 40px;
     padding: 6px 10px;
     border-radius: 5px;
@@ -122,6 +123,24 @@ input{
 }
 input::placeholder{
     color: gray;
+}
+
+#date-input{
+    position: relative;
+}
+
+#date-input img{
+    width: 19px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#date-input input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
 }
 
 #pop-up{

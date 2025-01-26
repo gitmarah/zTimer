@@ -20,7 +20,11 @@
     <div class="container">
         <h2>Set Target Event & Time</h2>
         <input type="text" id="event-title" placeholder="Event Title" autofocus required />
-        <input type="datetime-local" id="target-date" />
+        <div id="date-input">
+            <input type="datetime-local" id="target-date" />
+            <img src="calendar.svg" alt="">
+        </div>
+        
         <p class="error">dfghjk</p>
         <button id="start-timer">Start</button>
         <div class="timer" id="time-display">--:--:--:--</div>
